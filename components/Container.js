@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import { useAuth } from '../lib/auth'
 
 export default function Container({ children, withPadding = true }) {
-  const { user, logout } = useAuth()
   const [mounted, setMounted] = useState(false)
   const { theme, resolvedTheme, setTheme } = useTheme()
-
-  const loggedIn = user != null
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), [])
@@ -23,20 +19,6 @@ export default function Container({ children, withPadding = true }) {
           <Link href="/blog">
             <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Blog</a>
           </Link>
-          {loggedIn ? (
-            <a
-              onClick={logout}
-              className="p-1 sm:p-4 text-gray-900 dark:text-gray-100"
-            >
-              Logout
-            </a>
-          ) : (
-            <Link href="/login">
-              <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
-                Login
-              </a>
-            </Link>
-          )}
         </div>
         <button
           aria-label="Toggle Dark Mode"
