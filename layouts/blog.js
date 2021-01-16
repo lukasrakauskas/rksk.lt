@@ -1,7 +1,7 @@
-import { parseISO, format } from 'date-fns'
+import { format, parseISO } from 'date-fns';
 
-import Container from '../components/Container'
-import ViewCounter from '../components/ViewCounter'
+import Container from '../components/Container';
+import ViewCounter from '../components/ViewCounter';
 // import BlogSeo from '@/components/BlogSeo'
 
 export default function BlogLayout({ children, frontMatter }) {
@@ -30,5 +30,5 @@ export default function BlogLayout({ children, frontMatter }) {
         </div>
       </article>
     </Container>
-  )
+  );
 }

@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import useSWR from 'swr'
-import format from 'comma-number'
+import format from 'comma-number';
+import Link from 'next/link';
+import useSWR from 'swr';
 
-import fetcher from '../lib/fetcher'
+import fetcher from '../lib/fetcher';
 
 const BlogPost = ({ title, summary, slug }) => {
-  const { data } = useSWR(`/api/views/${slug}`, fetcher)
-  const views = data?.total
+  const { data } = useSWR(`/api/views/${slug}`, fetcher);
+  const views = data?.total;
 
   return (
     <Link href={`/blog/${slug}`}>
@@ -24,7 +24,7 @@ const BlogPost = ({ title, summary, slug }) => {
         </div>
       </a>
     </Link>
-  )
-}
+  );
+};
 
-export default BlogPost
+export default BlogPost;

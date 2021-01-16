@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import { NextSeo } from 'next-seo'
+import { NextSeo } from 'next-seo';
+import { useState } from 'react';
 
-import Container from '../../components/Container'
-import BlogPost from '../../components/BlogPost'
-import { getAllFilesFrontMatter } from '../../lib/mdx'
+import BlogPost from '../../components/BlogPost';
+import Container from '../../components/Container';
+import { getAllFilesFrontMatter } from '../../lib/mdx';
 
-const url = 'https://rksk.lt/blog'
-const title = 'Blog – Lukas Rakauskas'
+const url = 'https://rksk.lt/blog';
+const title = 'Blog – Lukas Rakauskas';
 const description =
-  'Thoughts on the software industry, programming, tech, videography, music, and my personal life.'
+  'Thoughts on the software industry, programming, tech, videography, music, and my personal life.';
 
 export default function Blog({ posts }) {
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = posts
     .sort(
       (a, b) =>
@@ -19,7 +19,7 @@ export default function Blog({ posts }) {
     )
     .filter((frontMatter) =>
       frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
-    )
+    );
 
   return (
     <Container>
@@ -30,7 +30,7 @@ export default function Blog({ posts }) {
         openGraph={{
           url,
           title,
-          description,
+          description
         }}
       />
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
@@ -77,11 +77,11 @@ export default function Blog({ posts }) {
         ))}
       </div>
     </Container>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog')
+  const posts = await getAllFilesFrontMatter('blog');
 
-  return { props: { posts } }
+  return { props: { posts } };
 }

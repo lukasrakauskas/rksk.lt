@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
-import Link from 'next/link'
+import Link from 'next/link';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function Container({ children, withPadding = true }) {
-  const [mounted, setMounted] = useState(false)
-  const { theme, resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { theme, resolvedTheme, setTheme } = useTheme();
 
   // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), [])
+  useEffect(() => setMounted(true), []);
 
   return (
     <div className="bg-white dark:bg-black">
@@ -54,5 +54,5 @@ export default function Container({ children, withPadding = true }) {
         {children}
       </main>
     </div>
-  )
+  );
 }

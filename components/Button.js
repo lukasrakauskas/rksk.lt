@@ -1,5 +1,5 @@
-import { Transition } from '@headlessui/react'
-import { motion } from 'framer-motion'
+import { Transition } from '@headlessui/react';
+import { motion } from 'framer-motion';
 
 export default function Button({
   children,
@@ -9,19 +9,9 @@ export default function Button({
 }) {
   return (
     <button
-      // disabled={loading}
       className={`text-white bg-${color}-500 border-0 py-2 px-8 focus:outline-none hover:bg-${color}-600 rounded text-lg block h-12 relative`}
       {...props}
     >
-      {/* 
-      
-        Entering: "transform transition ease-in-out duration-500 sm:duration-700"
-          From: "translate-x-full"
-          To: "translate-x-0"
-        Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
-          From: "translate-x-0"
-          To: "translate-x-full"
-      */}
       <Transition
         show={loading}
         enter="transform transition"
@@ -58,5 +48,5 @@ export default function Button({
         {children}
       </motion.span>
     </button>
-  )
+  );
 }
