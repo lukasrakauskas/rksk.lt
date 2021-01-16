@@ -31,6 +31,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Roadmap
 
+- [ ] Update old dependencies
 - [ ] Remove firebase.json and move to env variables
 - [ ] Use preact in production
 - [ ] Change to different code theme for Prism
