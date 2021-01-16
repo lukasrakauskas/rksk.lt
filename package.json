@@ -6,7 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start-remote": "next-remote-watch ./content"
+    "lint": "eslint --fix . --ignore-path ./.gitignore",
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,mdx,json} --config ./.prettierrc.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx,ts,tsx}": [
+      "npm run lint",
+      "npm run format"
+    ]
   },
   "dependencies": {
     "@headlessui/react": "^0.2.0",
@@ -22,7 +34,6 @@
     "next": "10.0.3",
     "next-google-fonts": "^1.2.1",
     "next-mdx-remote": "^1.0.1",
-    "next-remote-watch": "^0.3.0",
     "next-seo": "^4.17.0",
     "next-themes": "0.0.10",
     "postcss": "^8.2.1",
@@ -36,6 +47,16 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
     "rehype": "^11.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-parse": "^9.0.0",
