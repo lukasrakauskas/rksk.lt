@@ -1,8 +1,8 @@
-import '../styles/global.css';
-
 // import { DefaultSeo } from 'next-seo'
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
+
+import '../styles/global.css';
 
 // import SEO from '../next-seo.config'
 

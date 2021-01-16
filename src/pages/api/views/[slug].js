@@ -1,4 +1,4 @@
-import db from '../../../lib/database';
+import db from 'src/lib/database';
 
 export default async (req, res) => {
   // TODO: could filter slugs and decline request?

@@ -1,9 +1,9 @@
-import { NextSeo } from 'next-seo';
 import { useState } from 'react';
+import { NextSeo } from 'next-seo';
 
-import BlogPost from '../../components/BlogPost';
-import Container from '../../components/Container';
-import { getAllFilesFrontMatter } from '../../lib/mdx';
+import BlogPost from 'src/components/BlogPost';
+import Container from 'src/components/Container';
+import { getAllFilesFrontMatter } from 'src/lib/mdx';
 
 const url = 'https://rksk.lt/blog';
 const title = 'Blog – Lukas Rakauskas';

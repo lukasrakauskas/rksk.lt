@@ -1,8 +1,8 @@
-import format from 'comma-number';
 import { useEffect } from 'react';
+import format from 'comma-number';
 import useSWR from 'swr';
 
-import fetcher from '../lib/fetcher';
+import fetcher from 'src/lib/fetcher';
 
 export default function ViewCounter({ slug }) {
   const { data } = useSWR(`/api/views/${slug}`, fetcher);
