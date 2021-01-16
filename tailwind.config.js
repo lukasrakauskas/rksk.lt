@@ -1,13 +1,16 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-const { spacing } = defaultTheme;
+const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js'],
+  purge: [
+    './src/pages/**/*.js',
+    './src/components/**/*.js',
+    './src/layouts/**/*.js'
+  ],
   darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', 'Inter', ...defaultTheme.fontFamily.sans]
+        sans: ['Inter var', 'Inter', ...fontFamily.sans]
       },
       typography: (theme) => ({
         DEFAULT: {
