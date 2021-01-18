@@ -39,3 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [ ] Add AWS DynamoDB and Umami analytics
 - [ ] Work on first blog post?
 - [ ] Add authentication to access blog
+- [ ] Add SEO
