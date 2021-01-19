@@ -2,7 +2,9 @@
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 
-import '../styles/global.css';
+import { AuthProvider } from 'src/lib/auth';
+
+import 'src/styles/global.css';
 
 // import SEO from '../next-seo.config'
 
@@ -10,12 +12,14 @@ import '../styles/global.css';
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
-      <Head>
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-      </Head>
-      {/* <DefaultSeo {...SEO} /> */}
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider attribute="class" defaultTheme="system">
+        <Head>
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+        </Head>
+        {/* <DefaultSeo {...SEO} /> */}
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
