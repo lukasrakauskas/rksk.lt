@@ -1,21 +1,49 @@
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
 import { useAuth } from 'src/lib/auth';
 
-export default function Container({ children, withPadding = true }) {
+export default function Container({
+  children,
+  withPadding = true,
+  ...customMeta
+}) {
   const { user, logout } = useAuth();
   const [mounted, setMounted] = useState(false);
   const { theme, resolvedTheme, setTheme } = useTheme();
+  const router = useRouter();
 
   const loggedIn = user != null;
+  const meta = {
+    title: 'Lukas Rakauskas – React Front-end Developer.',
+    description: `Front-end developer, JavaScript enthusiast.`,
+    // image: 'https://rksk.lt/static/images/banner.png',
+    type: 'website',
+    ...customMeta
+  };
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
   return (
     <div className="bg-white dark:bg-black">
+      <Head>
+        <title>{meta.title}</title>
+        <meta name="robots" content="follow, index" />
+        <meta content={meta.description} name="description" />
+        <meta property="og:url" content={`https://rksk.lt${router.asPath}`} />
+        <meta property="og:type" content={meta.type} />
+        <meta property="og:site_name" content="Lukas Rakauskas" />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        {/* <meta property="og:image" content={meta.image} /> */}
+        {meta.date && (
+          <meta property="article:published_time" content={meta.date} />
+        )}
+      </Head>
       <nav className="sticky-nav flex justify-between items-center max-w-4xl w-full p-8 my-0 md:my-8 mx-auto bg-white dark:bg-black bg-opacity-60">
         <div>
           <Link href="/">

@@ -12,7 +12,6 @@ class MyDocument extends Document {
             href="https://fonts.gstatic.com/"
             crossOrigin=""
           />
-          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
         </Head>

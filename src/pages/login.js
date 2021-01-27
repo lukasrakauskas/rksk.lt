@@ -42,7 +42,11 @@ export default function Login() {
   }, [router, user]);
 
   return (
-    <Container withPadding={false}>
+    <Container
+      title="Login - Lukas Rakauskas"
+      description="Here you can log in to my website."
+      withPadding={false}
+    >
       <section className="text-gray-600 body-font">
         <div className="container w-full md:w-1/2 md:px-5 mx-auto flex flex-wrap items-center">
           <form
