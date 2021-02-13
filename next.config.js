@@ -10,5 +10,8 @@ module.exports = {
     }
 
     return config;
+  },
+  images: {
+    domains: ['rksk.lt']
   }
 };
