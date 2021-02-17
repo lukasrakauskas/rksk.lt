@@ -202,14 +202,15 @@ export default function Home() {
           </div>
         </div>
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          <Image
-            objectPosition="left center"
-            layout="fill"
-            className="object-cover w-full h-72 md:h-96 lg:w-full lg:h-full"
-            src="/static/images/intro-cropped.jpg"
-            alt="Lukas Rakauskas"
-            priority
-          />
+          <div className="relative h-72 md:h-96 lg:w-full lg:h-full">
+            <Image
+              objectPosition="left center"
+              objectFit="cover"
+              layout="fill"
+              src="/static/images/intro-cropped.jpg"
+              alt="Lukas Rakauskas"
+            />
+          </div>
         </div>
       </div>
 
@@ -234,88 +235,79 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="py-24 bg-white" id="projects">
-        <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-          <div className="lg:text-center">
-            <p className="text-base font-semibold leading-6 tracking-wide text-indigo-600 uppercase">
-              Projects
+      <section className="max-w-screen-xl px-4 py-24 mx-auto text-gray-600 sm:px-6 lg:px-8 body-font">
+        <div className="lg:text-center">
+          <p className="text-base font-semibold leading-6 tracking-wide text-indigo-600 uppercase">
+            Projects
+          </p>
+          <h3 className="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+            Some of my notable work
+          </h3>
+        </div>
+        <div className="flex flex-col max-w-4xl gap-8 md:flex-row">
+          <div className="mb-6 sm:mb-0">
+            <div className="">
+              <Image
+                alt="http://fabrics.lt"
+                src="/static/images/fabricslt.jpg"
+                className="overflow-hidden rounded-lg"
+                width={1280}
+                height={720}
+              />
+            </div>
+            <h4 className="mt-4 text-lg font-medium leading-6 text-gray-900 md:text-xl">
+              WooCommerce shipping plugin
+            </h4>
+            <p className="mt-4 text-base font-bold leading-6 text-indigo-700 uppercase">
+              Work done
             </p>
-            <h3 className="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-              Some of my notable work
-            </h3>
+            <p className="text-base leading-6 text-gray-700 sm:text-md md:text-lg">
+              Adds{' '}
+              <a
+                className="text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500"
+                href="https://www.omniva.lt/"
+              >
+                Omniva
+              </a>{' '}
+              terminal shipping method for WooCommerce.
+            </p>
+            <p className="mt-4 text-base font-bold leading-6 text-indigo-700 uppercase">
+              Technology stack
+            </p>
+            <p className="text-base leading-6 text-gray-700 sm:text-md md:text-lg">
+              PHP, HTML, CSS, WordPress
+            </p>
           </div>
 
-          <div className="flex-col mx-auto mt-10 space-y-10 lg:max-w-4xl">
-            <div className="flex flex-col flex-wrap space-y-10 md:flex-row md:space-x-10">
-              <div className="flex-1">
-                <h4 className="text-lg font-semibold leading-6 text-gray-900 md:text-xl">
-                  Mobite
-                </h4>
-                <p className="mt-4 text-base font-bold leading-6 text-indigo-700 uppercase">
-                  Work done
-                </p>
-                <p className="text-base leading-6 text-gray-700 sm:text-md md:text-lg">
-                  Mobite is a questionnaire like Akinator to help non-tech savvy
-                  users choose a smartphone that fits their needs.
-                </p>
-                <p className="mt-4 text-base font-bold leading-6 text-indigo-700 uppercase">
-                  Technology stack
-                </p>
-                <p className="text-base leading-6 text-gray-700 sm:text-md md:text-lg">
-                  .NET Core 3.1, MySQL, Angular 9, TypeScript, SCSS
-                </p>
-              </div>
-              <div className="flex-1">
-                <Image
-                  className="object-contain rounded-md shadow"
-                  alt="mobite application"
-                  src="/static/images/mobite.png"
-                  width={1280}
-                  height={720}
-                />
-              </div>
+          <div className="mb-6 sm:mb-0">
+            <div className="">
+              <Image
+                alt="mobite application"
+                src="/static/images/mobite.png"
+                className="overflow-hidden rounded-lg"
+                width={1280}
+                height={720}
+              />
             </div>
-
-            <div className="flex flex-col-reverse flex-wrap space-y-10 md:flex-row md:space-x-10">
-              <div className="flex justify-end flex-1">
-                <Image
-                  className="object-contain rounded-md shadow"
-                  alt="http://fabrics.lt"
-                  src="/static/images/fabricslt.jpg"
-                  width={1280}
-                  height={720}
-                />
-              </div>
-              <div className="flex-1 mb-4">
-                <div className="align-middle">
-                  <h4 className="text-lg font-medium leading-6 text-gray-900 md:text-xl">
-                    WooCommerce shipping plugin
-                  </h4>
-                  <p className="mt-4 text-base font-bold leading-6 text-indigo-700 uppercase">
-                    Work done
-                  </p>
-                  <p className="text-base leading-6 text-gray-700 sm:text-md md:text-lg">
-                    Adds{' '}
-                    <a
-                      className="text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500"
-                      href="https://www.omniva.lt/"
-                    >
-                      Omniva
-                    </a>{' '}
-                    terminal shipping method for WooCommerce.
-                  </p>
-                  <p className="mt-4 text-base font-bold leading-6 text-indigo-700 uppercase">
-                    Technology stack
-                  </p>
-                  <p className="text-base leading-6 text-gray-700 sm:text-md md:text-lg">
-                    PHP, HTML, CSS, WordPress
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h4 className="mt-4 text-lg font-semibold leading-6 text-gray-900 md:text-xl">
+              Mobite
+            </h4>
+            <p className="mt-4 text-base font-bold leading-6 text-indigo-700 uppercase">
+              Work done
+            </p>
+            <p className="text-base leading-6 text-gray-700 sm:text-md md:text-lg">
+              Mobite is a questionnaire like Akinator to help non-tech savvy
+              users choose a smartphone that fits their needs.
+            </p>
+            <p className="mt-4 text-base font-bold leading-6 text-indigo-700 uppercase">
+              Technology stack
+            </p>
+            <p className="text-base leading-6 text-gray-700 sm:text-md md:text-lg">
+              .NET Core 3.1, MySQL, Angular 9, TypeScript, SCSS
+            </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <section className="bg-indigo-600 body-font">
         <div className="container px-5 py-12 mx-auto">
@@ -400,12 +392,6 @@ export default function Home() {
                 </button>
               </div>
               <div className="w-full p-2 pt-8 mt-8 text-center border-t border-gray-200">
-                <a
-                  href="mailto:rakauskaslukas123@gmail.com"
-                  className="block mb-5 text-indigo-600"
-                >
-                  rakauskaslukas123@gmail.com
-                </a>
                 <span className="inline-flex">
                   <a
                     href="https://www.linkedin.com/in/lukas-rakauskas/"
