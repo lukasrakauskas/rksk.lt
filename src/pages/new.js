@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Transition } from '@headlessui/react';
-import Head from 'next/head';
 import Image from 'next/image';
 
 export default function Home() {
@@ -9,12 +8,7 @@ export default function Home() {
   const handleClose = () => setIsOpen(false);
 
   return (
-    <>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-      </Head>
+    <div>
       <div className="relative overflow-hidden bg-white">
         <div className="max-w-screen-xl mx-auto">
           <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -30,7 +24,7 @@ export default function Home() {
 
             <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
               <nav
-                className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+                className="relative flex items-baseline justify-between sm:h-10 lg:justify-start"
                 aria-label="Global"
               >
                 <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
@@ -244,7 +238,7 @@ export default function Home() {
             Some of my notable work
           </h3>
         </div>
-        <div className="flex flex-col max-w-4xl gap-8 md:flex-row">
+        <div className="flex flex-col max-w-4xl gap-8 mx-auto md:flex-row">
           <div className="mb-6 sm:mb-0">
             <div className="">
               <Image
@@ -431,6 +425,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
