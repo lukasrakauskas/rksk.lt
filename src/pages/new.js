@@ -1,11 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Transition } from '@headlessui/react';
 import Image from 'next/image';
 
 export default function Home() {
+  const Statuses = {
+    Idle: 'ilde',
+    Loading: 'loading',
+    Sent: 'sent',
+    Error: 'error'
+  };
+
+  const Messages = {
+    [Statuses.Sent]: 'Your message has been sent',
+    [Statuses.Error]: 'Failed to send your message :('
+  };
+
+  const [status, setStatus] = useState(Statuses.Idle);
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const message = event.target.message.value;
+
+    if (!name || !email || !message) return;
+
+    try {
+      setStatus(Statuses.Loading);
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+      setStatus(Statuses.Sent);
+    } catch (error) {
+      setStatus(Statuses.Error);
+    }
+  };
+
+  useEffect(() => {
+    let timeout;
+    if (status === Statuses.Sent || status === Statuses.Error) {
+      timeout = setTimeout(() => {
+        setStatus(Statuses.Idle);
+      }, 5000);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [status]);
 
   return (
     <div>
@@ -332,7 +381,7 @@ export default function Home() {
             </h3>
           </div>
           <div className="mx-auto lg:w-1/2 md:w-2/3">
-            <div className="flex flex-wrap -m-2">
+            <form onSubmit={handleSubmit} className="flex flex-wrap -m-2">
               <div className="w-full p-2 md:w-1/2">
                 <div className="relative">
                   <label
@@ -381,9 +430,16 @@ export default function Home() {
                 </div>
               </div>
               <div className="w-full p-2">
-                <button className="flex px-8 py-2 mx-auto text-lg text-white bg-indigo-600 border-0 rounded focus:outline-none hover:bg-indigo-700">
+                <button
+                  type="submit"
+                  disabled={status === Statuses.Loading}
+                  className="flex px-8 py-2 mx-auto text-lg text-white bg-indigo-600 border-0 rounded focus:outline-none hover:bg-indigo-700"
+                >
                   Send message
                 </button>
+                {Messages[status] ? (
+                  <p className="mt-6 text-center">{Messages[status]}</p>
+                ) : null}
               </div>
               <div className="w-full p-2 pt-8 mt-8 text-center border-t border-gray-200">
                 <span className="inline-flex">
@@ -421,7 +477,7 @@ export default function Home() {
                   </a>
                 </span>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
