@@ -8,7 +8,7 @@ export default async (req, res) => {
     const message = {
       to: 'lukas@rksk.lt',
       from: 'noreply@rksk.lt',
-      subject: `Message from ${req.body.name} ${req.body.email} from rksk.lt`,
+      subject: `Message from ${req.body.name} ${req.body.email} on rksk.lt`,
       text: req.body.message
     };
 
